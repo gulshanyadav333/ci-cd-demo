@@ -30,3 +30,7 @@ jobs:
       - name: Build Docker image
         run: |
           docker build -t ci-cd-demo .
+      
+      - name: Run tests
+        run: pytest
+
