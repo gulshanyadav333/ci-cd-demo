@@ -1,7 +1,15 @@
 from fastapi import FastAPI
+import os
 
 app = FastAPI()
 
 @app.get("/")
-def health():
+def root():
     return {"status": "ok"}
+
+@app.get("/health")
+def health():
+    return {
+        "status": "healthy",
+        "db_host": os.getenv("DB_HOST")
+    }
